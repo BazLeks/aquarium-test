@@ -114,7 +114,7 @@ public class AquariumActivity extends Activity implements Runnable {
 					Fish fish = fishes.get(i);
 					if(fish.cross(fishes.get(j))) {
 						final Fish eated = fishes.get(j);
-						fishes.remove(eated);						
+						fishes.remove(eated);
 						eated.setEated();
 						eated.post(new Runnable() {
 							@Override
@@ -123,6 +123,7 @@ public class AquariumActivity extends Activity implements Runnable {
 								animation.setDuration(1000);
 								eated.startAnimation(animation);
 								eated.setAlpha(0f);
+								frameLayout.removeView(eated);
 							}
 						});
 					}
